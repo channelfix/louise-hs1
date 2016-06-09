@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hackathon Session 1 - JS canvas</title>
+
+        <style>
+            body {display: flex; align-items: center; justify-content: center;}
+            canvas {display: block; margin: 10px auto;}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <canvas class="canvas" width="1000" height="563"></canvas>
+            <canvas class="canvas" width="720" height="720"></canvas>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var canvas1 = $('.canvas')[0];
+                if (canvas1.getContext) {
+                    var ctx = canvas1.getContext('2d');
+
+                    ctx.fillStyle = "#00BCD4";
+                    ctx.fillRect (0, 0, 1000, 563);
+
+                    ctx.fillStyle = "#00838F";
+                    ctx.fillRect (160, 80, 680, 403);
+
+                    ctx.fillStyle = "#0097A7";
+                    ctx.fillRect (500, 160, 420, 323);
+
+                    ctx.fillStyle = "#00ACC1";
+                    ctx.fillRect (420, 240, 420, 243);
+
+                    ctx.fillStyle = "#4DD0E1";
+                    ctx.fillRect (340, 303, 120, 180);
+
+                    ctx.beginPath();
+                    ctx.arc(840,433,50,0,Math.PI*2,true);
+                    ctx.fill();
+                }
+
+                var canvas2 = $('.canvas')[1];
+                if (canvas1.getContext) {
+                    ctx = canvas2.getContext('2d');
+
+                    // bg
+                    ctx.fillStyle = '#81D4FA';
+                    ctx.fillRect (0, 0, 720, 720);
+
+                    // back hair
+                    ctx.fillStyle = '#3E2723';
+                    ctx.beginPath();
+                    ctx.arc(360,335,122,0,Math.PI*2,true);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(241,400);
+                    ctx.lineTo(241,500);
+                    ctx.quadraticCurveTo(350,470,479,500);
+                    ctx.lineTo(479,400);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // neck
+                    ctx.fillStyle = 'hsl(18, 55%, 69%)';
+                    ctx.beginPath();
+                    ctx.moveTo(335, 465);
+                    ctx.quadraticCurveTo(343,490,335,500);
+                    ctx.lineTo(385,500);
+                    ctx.quadraticCurveTo(377,490,385,465);
+                    ctx.lineTo(335, 465);
+                    ctx.closePath();
+                    ctx.fill();
+
+
+                    // face
+                    ctx.fillStyle = 'hsl(18, 55%, 79%)';
+                    ctx.beginPath();
+                    ctx.arc(360,345,80,0,Math.PI*2,true);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(360,360,80,0,Math.PI*2,true);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(360,450,30,0,Math.PI*2,true);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(437, 375);
+                    ctx.quadraticCurveTo(430,460,360,475);
+                    ctx.quadraticCurveTo(290,460,283,375);
+                    ctx.lineTo(437,375);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // front hair
+                    ctx.fillStyle = '#3E2723';
+                    ctx.beginPath();
+                    ctx.moveTo(290,320);
+                    ctx.quadraticCurveTo(390,370,430,350);
+                    ctx.lineTo(430,500);
+                    ctx.quadraticCurveTo(430,530,400,550);
+                    ctx.quadraticCurveTo(480,540,480,500);
+                    ctx.lineTo(480,320);
+                    ctx.quadraticCurveTo(300,200,290,320);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(290,320);
+                    ctx.lineTo(290,500);
+                    ctx.quadraticCurveTo(290,530,330,550);
+                    ctx.quadraticCurveTo(240,540,240,500);
+                    ctx.lineTo(240,320);
+                    ctx.quadraticCurveTo(310,250,290,320);
+                    ctx.fill();
+                }
+            });
+        </script>
+    </body>
+</html>
